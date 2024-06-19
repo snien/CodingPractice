@@ -62,7 +62,9 @@ public class Interview {
 
                 Enrollee enrollee = new Enrollee(userId, firstName, lastName, version, insuranceCompany);
 
-                insuranceCompanyMap.putIfAbsent(insuranceCompany, new ArrayList<>());
+                if (!insuranceCompanyMap.containsKey(insuranceCompany)) {
+                    insuranceCompanyMap.put(insuranceCompany, new ArrayList<>());
+                }
                 insuranceCompanyMap.get(insuranceCompany).add(enrollee);
 
             }
